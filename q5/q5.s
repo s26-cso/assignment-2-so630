@@ -29,6 +29,27 @@ main:
     mv s1, a0
 
     addi s1, s1, -1
+
+    blt s1, zero, is_palindrome
+
+    li a7, 62
+    mv a0, s0
+    mv a1, s1
+    li a2, 0
+    ecall
+
+    li a7, 63
+    mv a0, s0
+    la a1, char1
+    li a2, 1
+    ecall
+
+    lb t0, char1
+    li t1, 10
+    bne t0, t1, init_loop
+    addi s1, s1, -1
+
+init_loop:
     li s2, 0
 
 loop:
