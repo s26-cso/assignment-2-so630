@@ -23,7 +23,7 @@ int main()
 
         fptr func = (fptr)dlsym(handle, op);
         if (!func) {
-            fprintf(stderr, "Error finding function %s\n%s", op, dlerror());
+            fprintf(stderr, "Error finding function %s\n%s\n", op, dlerror());
             dlclose(handle);
             continue;
         }
