@@ -1,5 +1,6 @@
 .data
 fmt: .string "%d "
+fmt_last: .string "%d"
 nl: .string "\n"
 
 .text
@@ -142,7 +143,16 @@ print_loop:
     add t2, s1, t2
     lw a1, 0(t2)
 
+    addi t3, s3, -1
+    beq s5, t3, print_last
+
     la a0, fmt
+    j do_print
+
+print_last:
+    la a0, fmt_last
+
+do_print:
     addi sp, sp, -8
     sd ra, 0(sp)
 
