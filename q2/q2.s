@@ -113,7 +113,7 @@ loop_done:
 
     slli t4, t0, 2
     add t4, s1, t4
-    sw t6, 0(t4)
+    sw t3, 0(t4)
 
     j push_stack
 
